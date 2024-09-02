@@ -1,0 +1,71 @@
+.
+├── cont1
+│   ├── app1_old.py
+│   ├── _app1.py
+│   ├── app1.py
+│   ├── Dockerfile
+│   └── requirements.txt
+├── cont2
+│   ├── app2_old.py
+│   ├── _app2.py
+│   ├── app2.py
+│   ├── Dockerfile
+│   └── requirements.txt
+├── cont3
+│   ├── app3_old.py
+│   ├── _app3.py
+│   ├── app3.py
+│   ├── Dockerfile
+│   └── requirements.txt
+├── docker-compose.yml
+├── hello
+│   ├── receive.py
+│   └── send.py
+├── logs.txt
+├── rabbitmq
+│   └── mnesia
+│       ├── rabbit@rabbitmq
+│       │   ├── cluster_nodes.config
+│       │   ├── coordination
+│       │   │   └── rabbit@rabbitmq
+│       │   │       ├── 00000040.wal
+│       │   │       ├── meta.dets
+│       │   │       └── names.dets
+│       │   ├── DECISION_TAB.LOG
+│       │   ├── LATEST.LOG
+│       │   ├── msg_stores
+│       │   │   └── vhosts
+│       │   │       └── 628WB79CIFDYO9LJI6DKMI09L
+│       │   │           ├── msg_store_persistent
+│       │   │           │   ├── 0.rdq
+│       │   │           │   ├── clean.dot
+│       │   │           │   ├── file_summary.ets
+│       │   │           │   └── msg_store_index.ets
+│       │   │           ├── msg_store_transient
+│       │   │           │   ├── 0.rdq
+│       │   │           │   ├── clean.dot
+│       │   │           │   ├── file_summary.ets
+│       │   │           │   └── msg_store_index.ets
+│       │   │           └── recovery.dets
+│       │   ├── nodes_running_at_shutdown
+│       │   ├── quorum
+│       │   │   └── rabbit@rabbitmq
+│       │   │       ├── 00000040.wal
+│       │   │       ├── meta.dets
+│       │   │       └── names.dets
+│       │   ├── rabbit_durable_exchange.DCD
+│       │   ├── rabbit_durable_queue.DCD
+│       │   ├── rabbit_durable_route.DCD
+│       │   ├── rabbit_runtime_parameters.DCD
+│       │   ├── rabbit_serial
+│       │   ├── rabbit_topic_permission.DCD
+│       │   ├── rabbit_user.DCD
+│       │   ├── rabbit_user_permission.DCD
+│       │   ├── rabbit_vhost.DCD
+│       │   ├── schema.DAT
+│       │   └── schema_version
+│       ├── rabbit@rabbitmq-feature_flags
+│       └── rabbit@rabbitmq-plugins-expand
+└── tree.txt
+
+17 directories, 51 files

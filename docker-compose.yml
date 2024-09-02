@@ -1,0 +1,67 @@
+x-common-settings: &common-settings
+  depends_on:
+    - rabbitmq
+  environment:
+    - RABBITMQ_HOST=rabbitmq
+    - RABBITMQ_USER=rmuser
+    - RABBITMQ_PASS=rmpassword
+  networks:
+    - rabbitmq-network
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.10.7-management
+    hostname: rabbitmq
+    container_name: rabbitmq
+    restart: always
+    environment:
+      - RABBITMQ_DEFAULT_USER=rmuser
+      - RABBITMQ_DEFAULT_PASS=rmpassword
+      - RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS=-rabbit disk_free_limit 2147483648
+    volumes:
+      - ./rabbitmq:/var/lib/rabbitmq	
+    ports:
+      - 15672:15672
+      - 5672:5672
+    networks:
+      - rabbitmq-network  
+
+  cont1:
+    build: ./cont1
+    container_name: cont1
+    <<: *common-settings
+    volumes:
+    - ./cont1/app1.py:/app/app1.py
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+
+  cont2:
+    build: ./cont2
+    container_name: cont2
+    <<: *common-settings
+    volumes:
+    - ./cont2/app2.py:/app/app2.py
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+
+  cont3:
+    build: ./cont3
+    container_name: cont3
+    <<: *common-settings
+    volumes:
+    - ./cont3/app3.py:/app/app3.py
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+
+networks:
+  rabbitmq-network:
+    driver: bridge
